@@ -1,7 +1,11 @@
 target/
+*.class
 .idea/
 *.iml
 .vscode/
+.settings/
+.project
+.classpath
 out/
 build/
 dependency-reduced-pom.xml

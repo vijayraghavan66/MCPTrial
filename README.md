@@ -173,12 +173,52 @@ Requires JDK 17+ and Maven 3.9+.
 mvn clean package
 ```
 
+Using Maven Wrapper (recommended):
+
+```powershell
+./mvnw.cmd clean package
+```
+
 Produces an executable shaded jar at `target/java-engineering-mcp.jar`.
 
 Run tests:
 
 ```powershell
 mvn test
+```
+
+With wrapper:
+
+```powershell
+./mvnw.cmd clean test
+```
+
+---
+
+## Requirements
+
+- JDK 17
+- Maven 3.9+ (or use the bundled Maven Wrapper)
+
+---
+
+## Run instructions
+
+Build first, then run:
+
+```powershell
+./mvnw.cmd clean package
+java -jar target/java-engineering-mcp.jar --workspace .
+```
+
+---
+
+## Example usage
+
+Manual initialize request over stdio:
+
+```powershell
+echo '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{}}' | java -jar target/java-engineering-mcp.jar --workspace .
 ```
 
 ---
