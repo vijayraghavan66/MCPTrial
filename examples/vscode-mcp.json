@@ -1,0 +1,17 @@
+{
+  "servers": {
+    "java-engineering": {
+      "type": "stdio",
+      "command": "java",
+      "args": [
+        "-jar",
+        "${workspaceFolder}/target/java-engineering-mcp.jar",
+        "--workspace",
+        "${workspaceFolder}"
+      ],
+      "env": {
+        "MCP_WORKSPACE": "${workspaceFolder}"
+      }
+    }
+  }
+}

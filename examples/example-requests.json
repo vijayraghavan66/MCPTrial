@@ -1,0 +1,113 @@
+{
+  "examples": [
+    {
+      "tool": "searchCode",
+      "request": {
+        "name": "searchCode",
+        "arguments": {
+          "query": "TODO",
+          "regex": false,
+          "extensions": ["java"],
+          "maxResults": 50
+        }
+      },
+      "response": [
+        { "file": "src/main/java/com/example/App.java", "line": 42, "snippet": "// TODO handle null path" }
+      ]
+    },
+    {
+      "tool": "findClass",
+      "request": { "name": "findClass", "arguments": { "name": "OrderService", "exact": true } },
+      "response": [
+        {
+          "simpleName": "OrderService",
+          "packageName": "com.example.orders",
+          "fullyQualifiedName": "com.example.orders.OrderService",
+          "kind": "class",
+          "file": "src/main/java/com/example/orders/OrderService.java",
+          "line": 18,
+          "declaration": "public class OrderService implements OrderApi {"
+        }
+      ]
+    },
+    {
+      "tool": "findMethod",
+      "request": { "name": "findMethod", "arguments": { "method": "submit", "class": "OrderService" } },
+      "response": [
+        {
+          "methodName": "submit",
+          "signature": "public Order submit(OrderRequest request)",
+          "declaringClass": "com.example.orders.OrderService",
+          "file": "src/main/java/com/example/orders/OrderService.java",
+          "line": 56
+        }
+      ]
+    },
+    {
+      "tool": "findCallers",
+      "request": { "name": "findCallers", "arguments": { "class": "OrderService", "method": "submit" } },
+      "response": [
+        {
+          "callerClass": "com.example.web.OrderController",
+          "callerMethod": "createOrder",
+          "file": "src/main/java/com/example/web/OrderController.java",
+          "line": 31,
+          "snippet": "orderService.submit(req)",
+          "resolution": "ast"
+        }
+      ]
+    },
+    {
+      "tool": "findImplementations",
+      "request": { "name": "findImplementations", "arguments": { "type": "OrderApi" } },
+      "response": [
+        {
+          "fullyQualifiedName": "com.example.orders.OrderService",
+          "relation": "implements",
+          "file": "src/main/java/com/example/orders/OrderService.java",
+          "line": 18
+        }
+      ]
+    },
+    {
+      "tool": "gitHistory",
+      "request": { "name": "gitHistory", "arguments": { "file": "src/main/java/com/example/orders/OrderService.java", "maxCount": 5 } },
+      "response": [
+        {
+          "hash": "9f8a12b3c4d5e6f7081928374655667788990011",
+          "shortHash": "9f8a12b3",
+          "author": "Alice",
+          "email": "alice@example.com",
+          "date": "2026-05-03T10:22:14Z",
+          "message": "Reject orders with negative quantity"
+        }
+      ]
+    },
+    {
+      "tool": "compareCommits",
+      "request": { "name": "compareCommits", "arguments": { "from": "HEAD~1", "to": "HEAD", "maxPatchLines": 200 } },
+      "response": [
+        {
+          "changeType": "MODIFY",
+          "oldPath": "src/main/java/com/example/orders/OrderService.java",
+          "newPath": "src/main/java/com/example/orders/OrderService.java",
+          "addedLines": 4,
+          "deletedLines": 1,
+          "patch": "@@ -55,7 +55,10 @@ ..."
+        }
+      ]
+    },
+    {
+      "tool": "searchLogs",
+      "request": { "name": "searchLogs", "arguments": { "query": "NullPointerException", "path": "logs", "maxResults": 100 } },
+      "response": [
+        {
+          "file": "logs/app.log",
+          "line": 1234,
+          "timestamp": "2026-05-30T14:22:01.123Z",
+          "entry": "2026-05-30T14:22:01.123Z ERROR NullPointerException at com.example.orders.OrderService.submit(OrderService.java:62)"
+        }
+      ]
+    }
+  ]
+}

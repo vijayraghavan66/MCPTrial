@@ -1,0 +1,6 @@
+# Example MCP server config — copy to .mcp/server.properties and edit.
+mcp.ignoredDirs=.git,.hg,.svn,.idea,.vscode,target,build,out,bin,node_modules,dist,.gradle,.mvn
+mcp.textExtensions=java,kt,scala,groovy,xml,yml,yaml,properties,json,md,txt,sql,sh,bat,gradle,toml,ini,conf,log
+mcp.maxFileSizeBytes=5242880
+mcp.maxResults=500
+# mcp.astThreads=4
