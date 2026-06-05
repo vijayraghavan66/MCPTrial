@@ -10,3 +10,4 @@ out/
 build/
 dependency-reduced-pom.xml
 *.log
+.mcp/
